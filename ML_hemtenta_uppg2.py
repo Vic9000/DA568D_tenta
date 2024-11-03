@@ -10,6 +10,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn import metrics
 
+# Last name Nordlund => A=1
+
 #%%
 
 #%% DataFrame
@@ -17,7 +19,7 @@ Df_fashion_test = pd.read_csv('C:/Users/Victor Nordlund/Documents/Github/fashion
 Df_fashion_train = pd.read_csv('C:/Users/Victor Nordlund/Documents/Github/fashion-mnist_train.csv')
 Df_fashion = pd.concat([Df_fashion_test, Df_fashion_train]) # concatenating all the objects since I'm doing my own 80/20 splits later
 
-# select my labels
+# select my labels, A = 1
 my_fashion = (Df_fashion.label == 5) | (Df_fashion.label == 6) | (Df_fashion.label == 7) | (Df_fashion.label == 8) | (Df_fashion.label == 9)
 my_fashion_df = Df_fashion[my_fashion]
 my_fashion_features = my_fashion_df.drop('label', axis=1)
@@ -92,11 +94,10 @@ handles = scatter.legend_elements()[0]
 labels = unique_labels.tolist()
 plt.legend(handles, labels, title="Labels") 
 '''
-The main difference between this plot and the
-previous one is that the Sneaker points are
-more scattered, especially towards the top right 
-corner of the plot. The Ankle boots points also
-appear slightly easier to classify than previously.
+Mostly aligns with the previous plot. The main difference 
+is that the Sneaker points aremore scattered, especially 
+towards the top right corner of the plot. The Ankle boots 
+points alsoappear slightly easier to classify than previously.
 '''
 
 #%%
